@@ -1,0 +1,13 @@
+Train: dUT1 (m,n) = (500, 30)    algorithm KRR    alpha = 1e-12  length_scale = 1000. Target: dUT1 
+MAE = 0.001355
+R = 0.99996
+R^2 = 0.999919
+           AE [ms]
+count  3138.000000
+mean      1.355392
+std       1.056488
+min       0.000353
+25%       0.512588
+50%       1.142488
+75%       1.937536
+max       5.869141

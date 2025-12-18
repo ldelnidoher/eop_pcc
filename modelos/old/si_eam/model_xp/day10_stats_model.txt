@@ -1,0 +1,12 @@
+Train: R,N,xmass+xmotion (m,n) = (2000, 100)    algorithm KRR    alpha = 1e-7  length_scale = 1MAE = 0.001035 as
+R = 0.999844
+R^2 = 0.999687
+          AE [mas]
+count  2387.000000
+mean      1.035479
+std       1.153118
+min       0.001229
+25%       0.366449
+50%       0.723289
+75%       1.293658
+max       9.317137

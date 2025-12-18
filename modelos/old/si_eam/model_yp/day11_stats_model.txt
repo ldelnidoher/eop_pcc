@@ -1,0 +1,13 @@
+Train: R,N,ysum (m,n) = (2000, 100)    algorithm KRR    alpha = 1e-7  length_scale = 1. Target: ypol 
+MAE = 0.000514
+R = 0.999968
+R^2 = 0.999936
+          AE [mas]
+count  2386.000000
+mean      0.514337
+std       0.415270
+min       0.000009
+25%       0.199491
+50%       0.422706
+75%       0.730629
+max       3.033708

@@ -1,0 +1,13 @@
+Train: dUT1, zmass+zmotion (m,n) = (500, 30)    algorithm KRR    alpha = 1e-12  length_scale = 1000. Target: dUT1 
+MAE = 0.001061
+R = 0.999977
+R^2 = 0.999953
+           AE [ms]
+count  3115.000000
+mean      1.060675
+std       0.806884
+min       0.000673
+25%       0.420429
+50%       0.903100
+75%       1.503484
+max       4.805058

@@ -1,0 +1,11 @@
+60984 	nan 	nan 	nan 	nan 	nan 	nan 	 0.38391 	 0.01906
+60985 	nan 	nan 	nan 	nan 	nan 	nan 	 0.36733 	 0.05591
+60986 	nan 	nan 	nan 	nan 	nan 	nan 	 0.39321 	 0.09501
+60987 	nan 	nan 	nan 	nan 	nan 	nan 	 0.32189 	 0.11893
+60988 	nan 	nan 	nan 	nan 	nan 	nan 	 0.28899 	 0.11378
+60989 	nan 	nan 	nan 	nan 	nan 	nan 	 0.31411 	 0.09748
+60990 	nan 	nan 	nan 	nan 	nan 	nan 	 0.35487 	 0.05811
+60991 	nan 	nan 	nan 	nan 	nan 	nan 	 0.43751 	 0.02072
+60992 	nan 	nan 	nan 	nan 	nan 	nan 	 0.48016 	-0.00459
+60993 	nan 	nan 	nan 	nan 	nan 	nan 	 0.45409 	-0.01872
+60994 	nan 	nan 	nan 	nan 	nan 	nan 	 0.49683 	-0.03806

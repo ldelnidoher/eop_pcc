@@ -1,0 +1,13 @@
+Train: dy,yfcn,ymass+ymotion (m,n) = 70%,500    algorithm KRR    alpha = 1e-12  length_scale = 1. Target: dy
+MAE = 2.1e-05
+R = 0.985177
+R^2 = 0.970574
+                AE
+count  2345.000000
+mean      0.020853
+std       0.022866
+min       0.000013
+25%       0.006599
+50%       0.014489
+75%       0.027440
+max       0.323431

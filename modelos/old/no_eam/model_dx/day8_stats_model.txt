@@ -1,0 +1,13 @@
+Train: dX,xfcn (m,n) = 70%,500    algorithm KRR    alpha = 1e-10  length_scale = 1. Target: dX
+MAE = 2.8e-05
+R = 0.978644
+R^2 = 0.957745
+                 AE
+count  2.346000e+03
+mean   2.823109e-02
+std    2.824965e-02
+min    1.947582e-07
+25%    9.587189e-03
+50%    2.172260e-02
+75%    3.831384e-02
+max    4.263217e-01
