@@ -8,6 +8,7 @@ Created on Tue Dec  3 12:36:25 2024
 import numpy as np
 import pandas as pd
 import time
+import datetime
 from functions import * 
 
 f1 = datetime.datetime.today()
