@@ -246,8 +246,7 @@ def read_aam():
         idem
     """
     direc = dd+'/datos/AAM/'
-    ls = [f'{direc}ESMGFZ_AAM_v1.0_03h_2022.asc',f'{direc}ESMGFZ_AAM_v1.0_03h_2023.asc', f'{direc}ESMGFZ_AAM_v1.0_03h_2024.asc']
-    #ls = [f'{direc}ESMGFZ_AAM_v1.0_03h_2023.asc', f'{direc}ESMGFZ_AAM_v1.0_03h_2024.asc',f'{direc}ESMGFZ_AAM_v1.0_03h_2025.asc']
+    ls = [f'{direc}ESMGFZ_AAM_v1.0_03h_2023.asc', f'{direc}ESMGFZ_AAM_v1.0_03h_2024.asc',f'{direc}ESMGFZ_AAM_v1.0_03h_2025.asc']
     date,xmass,ymass,zmass,xmotion,ymotion,zmotion = [],[],[],[],[],[],[]
     for i in range(len(ls)):
         f = open(ls[i])
@@ -266,18 +265,10 @@ def read_aam():
     url = 'https://rz-vm480.gfz.de/repository/entry/'
     r2 = requests.get(url+"show", params = {'entryid':'df062563-2fda-4651-97be-376dfd6924ad'})
     r2t = r2.text
-    ind = r2t.index('ESMGFZ_AAM_v1.0_03h_2025.asc')
-    r3 = requests.get(url+'get/ESMGFZ_AAM_v1.0_03h_2025.asc',params = {'entryid':r2t[ind-36-11:ind-11]})
+    ind = r2t.index('ESMGFZ_AAM_v1.0_03h_2026.asc')
+    r3 = requests.get(url+'get/ESMGFZ_AAM_v1.0_03h_2026.asc',params = {'entryid':r2t[ind-36-11:ind-11]})
     aamlast = r3.text
     
-    """
-    url = 'https://rz-vm480.gfz.de/repository/entry/'
-    r2 = requests.get(url+"show", params = {'entryid':})
-    r2t = r2.text
-    ind = r2t.index('ESMGFZ_AAM_v1.0_03h_2026.asc')
-    r3 = requests.get(url+'get/ESMGFZ_AAM_v1.0_03h_2026.asc',params = {'entryid':r2t[]})
-    aamlast = r3.text
-    """
     r4 = requests.get(url+"show", params = {'entryid':'a0dc0850-d97d-4a4b-9121-e98515e4d8c6'})
     r4t = r4.text
     r4t = r4t[r4t.index('"name":"ESMGFZ_AAM_v1.0_W')+20:]
@@ -326,8 +317,7 @@ def read_oam():
         idem
     """
     direc = direc = dd+'/datos/OAM/'
-    ls = [f'{direc}ESMGFZ_OAM_v1.0_03h_2022.asc', f'{direc}ESMGFZ_OAM_v1.0_03h_2023.asc', f'{direc}ESMGFZ_OAM_v1.0_03h_2024.asc']
-    #ls = [f'{direc}ESMGFZ_OAM_v1.0_03h_2023.asc', f'{direc}ESMGFZ_OAM_v1.0_03h_2024.asc', f'{direc}ESMGFZ_OAM_v1.0_03h_2025.asc']
+    ls = [f'{direc}ESMGFZ_OAM_v1.0_03h_2023.asc', f'{direc}ESMGFZ_OAM_v1.0_03h_2024.asc', f'{direc}ESMGFZ_OAM_v1.0_03h_2025.asc']
     date,xmass,ymass,zmass,xmotion,ymotion,zmotion = [],[],[],[],[],[],[]
     for i in range(len(ls)):
         f = open(ls[i])
@@ -343,20 +333,14 @@ def read_oam():
         ymotion+=ymo
         zmotion+=zmo
 
+
     url = 'https://rz-vm480.gfz.de/repository/entry/'
     r2 = requests.get(url+"show", params = {'entryid':'73d23da5-4728-4b91-852d-2a630957b307'})
     r2t = r2.text
-    ind = r2t.index('ESMGFZ_OAM_v1.0_03h_2025.asc')
-    r3 = requests.get(url+'get/ESMGFZ_OAM_v1.0_03h_2025.asc',params = {'entryid':r2t[ind-36-11:ind-11]})
-    oamlast = r3.text
-    """
-    url = 'https://rz-vm480.gfz.de/repository/entry/'
-    r2 = requests.get(url+"show", params = {'entryid':})
-    r2t = r2.text
     ind = r2t.index('ESMGFZ_OAM_v1.0_03h_2026.asc')
     r3 = requests.get(url+'get/ESMGFZ_OAM_v1.0_03h_2026.asc',params = {'entryid':r2t[ind-36-11:ind-11]})
-    oam2026 = r3.text"
-    """
+    oamlast = r3.text
+
     r4 = requests.get(url+"show", params = {'entryid':'0ec23b7c-960f-4225-be2d-de8f68bdb5ec'})
     r4t = r4.text
     r4t = r4t[r4t.index('"name":"ESMGFZ_OAM_v1.0')+20:]
@@ -369,12 +353,6 @@ def read_oam():
         if oamlast[j] =="\n":
           cont+=1
         j+=1
-    """
-    while(cont<42):
-        if oam2026[j] =="\n":
-          cont+=1
-        j+=1
-    """
     
     oamlast=(oamlast[j:]).split("\n")
     ld = aux[j:].split("\n")[2:] #prediction of yesterday values (needed to predict today's)
@@ -437,11 +415,9 @@ def read_ham():
         idem
     """
     direc = dd+'/datos/HAM/'
-    ls = [f'{direc}ESMGFZ_HAM_v1.2_24h_2022.asc',f'{direc}ESMGFZ_HAM_v1.2_24h_2023.asc',f'{direc}ESMGFZ_HAM_v1.2_24h_2024.asc']
-    date,xmass,ymass,zmass,xmotion,ymotion,zmotion = [59579.500],[-6.768481584344571e-08],[1.554350911101399e-07],[7.662834402983595e-10],[-5.745005402019570e-11],[-4.222078422869910e-11],[4.043618847377000e-13]
-    #ls = [f'{direc}ESMGFZ_HAM_v1.2_24h_2023.asc',f'{direc}ESMGFZ_HAM_v1.2_24h_2024.asc',f'{direc}ESMGFZ_HAM_v1.2_24h_2024.asc']
+    ls = [f'{direc}ESMGFZ_HAM_v1.2_24h_2023.asc',f'{direc}ESMGFZ_HAM_v1.2_24h_2024.asc',f'{direc}ESMGFZ_HAM_v1.2_24h_2024.asc']
     #solutions are at 12h, not 00h; so we will calculate the mean value between two solutions to get 00h. For 01-01 we need 31-12 solution
-    #date,xmass,ymass,zmass,xmotion,ymotion,zmotion = [59944.500],[-1.077015111728597e-07],[1.872920064634999e-07],[9.658558932245592e-10],[-2.633075391255430e-11],[-1.347446554917640e-11],[2.536914218629560e-13]
+    date,xmass,ymass,zmass,xmotion,ymotion,zmotion = [59944.500],[-1.077015111728597e-07],[1.872920064634999e-07],[9.658558932245592e-10],[-2.633075391255430e-11],[-1.347446554917640e-11],[2.536914218629560e-13]
     
     for i in range(len(ls)):
         f = open(ls[i])
@@ -457,21 +433,15 @@ def read_ham():
         ymotion+=ymo
         zmotion+=zmo
   
+    
+    
     url = 'https://rz-vm480.gfz.de/repository/entry/'
     r1 = requests.get(url+"show", params = {'entryid':'ca1a8036-1c8a-4a45-9d11-f3ac69e2692a'})
-    r1t = r1.text
-    ind = r1t.index('ESMGFZ_HAM_v1.2_24h_2025.asc')
-    r2 = requests.get(url+"get/ESMGFZ_HAM_v1.2_24h_2025.asc", params = {'entryid':r1t[ind-36-11:ind-11]})
-    hamlast = r2.text
-    
-    """
-    url = 'https://rz-vm480.gfz.de/repository/entry/'
-    r1 = requests.get(url+"show", params = {'entryid':})
     r1t = r1.text
     ind = r1t.index('ESMGFZ_HAM_v1.2_24h_2026.asc')
     r2 = requests.get(url+"get/ESMGFZ_HAM_v1.2_24h_2026.asc", params = {'entryid':r1t[ind-36-11:ind-11]})
     hamlast = r2.text
-    """
+    
     cont,j = 0, 0
     while(cont<49):
         if hamlast[j] =="\n":
