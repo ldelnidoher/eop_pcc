@@ -44,26 +44,16 @@ def finals_all(start,today):
     i = int(start-st)
     
     lista = rt[i:f]
-    lista = [lista[j].split() for j in range(len(lista))]
+    lista = [[lista[j][:6]]+lista[j][6:].split() for j in range(len(lista))]
     xp, yp, dut1, dx, dy = [],[],[],[],[]
     
-    missing_data = [] #sup missing data is at the end and not isolated
-    for x in lista:
-        if len(x) < 17:
-            missing_data.append(1)
-    v = len(missing_data)
     
     dx = [float(lista[k][-4])*1e-3 for k in range(len(lista))] #está en mas, no as
     dy = [float(lista[k][-2])*1e-3 for k in range(len(lista))]
-    xp = [float(lista[k][-14]) for k in range(len(lista)-v)]
-    yp = [float(lista[k][-12]) for k in range(len(lista)-v)]
-    dut1 = [float(lista[k][-9]) for k in range(len(lista)-v)]
-    fechas = [int(float(lista[k][-16])) for k in range(len(lista)-v)]
-    
-    xp+=[float(lista[k][-12]) for k in range(len(lista)-v,len(lista))]
-    yp += [float(lista[k][-10]) for k in range(len(lista)-v,len(lista))]
-    dut1 += [float(lista[k][-7]) for k in range(len(lista)-v,len(lista))]
-    fechas += [int(float(lista[k][-14])) for k in range(len(lista)-v,len(lista))]
+    xp = [float(lista[k][3]) for k in range(len(lista))]
+    yp = [float(lista[k][5]) for k in range(len(lista))]
+    dut1 = [float(lista[k][8]) for k in range(len(lista))]
+    fechas = [int(float(lista[k][1])) for k in range(len(lista))]
     return  fechas,xp,yp,dx,dy,dut1
     
 

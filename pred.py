@@ -40,8 +40,6 @@ difa = datea[-1]-mjd[-1]
 difo = dateo[-1]-mjd[-1]
 difh = dateh[-1]-mjd[-1]
 
-difa, difo = 1,1
-
 if difa != 0:
     xmassa =  xmassa[:-difa]
     ymassa = ymassa[:-difa]
