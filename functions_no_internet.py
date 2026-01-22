@@ -47,31 +47,19 @@ def finals_all(start,today):
     # f.close()
     ind = rt[0].index('I')
     st = int(rt[0][ind-9:ind-4])
-    f = int(today-st)   # 48622 corresponds to the first epoch in the file in mjd
+    f = int(today-st)   
     i = int(start-st)
     
     lista = rt[i:f]
-    lista = [lista[j].split() for j in range(len(lista))]
+    lista = [[lista[j][:6]]+lista[j][6:].split() for j in range(len(lista))]
     xp, yp, dut1, dx, dy = [],[],[],[],[]
     
-    missing_data = [] #sup missing data is at the end and not isolated
-    for x in lista:
-        if len(x) < 17:
-            missing_data.append(1)
-    v = len(missing_data)
-    
-    
-    dx = [float(lista[k][-4])*1e-3 for k in range(len(lista))] #está en mas, no as
-    dy = [float(lista[k][-2])*1e-3 for k in range(len(lista))]
-    xp = [float(lista[k][-14]) for k in range(len(lista)-v)]
-    yp = [float(lista[k][-12]) for k in range(len(lista)-v)]
-    dut1 = [float(lista[k][-9]) for k in range(len(lista)-v)]
-    fechas = [int(float(lista[k][-16])) for k in range(len(lista)-v)]
-    
-    xp+=[float(lista[k][-12]) for k in range(len(lista)-v,len(lista))]
-    yp += [float(lista[k][-10]) for k in range(len(lista)-v,len(lista))]
-    dut1 += [float(lista[k][-7]) for k in range(len(lista)-v,len(lista))]
-    fechas += [int(float(lista[k][-14])) for k in range(len(lista)-v,len(lista))]
+    dx = [float(lista[k][-4])*1e-3 for k in range(len(lista))] #[mas]->[as]
+    dy = [float(lista[k][-2])*1e-3 for k in range(len(lista))] #[mas]->[as]
+    xp = [float(lista[k][3]) for k in range(len(lista))]
+    yp = [float(lista[k][5]) for k in range(len(lista))]
+    dut1 = [float(lista[k][8]) for k in range(len(lista))]
+    fechas = [int(float(lista[k][1])) for k in range(len(lista))]
     return  fechas,xp,yp,dx,dy,dut1
     
 def decimal(lista):
@@ -244,8 +232,7 @@ def read_aam():
         idem
     """
     direc = dd+'/datos/AAM/'
-    ls = [f'{direc}ESMGFZ_AAM_v1.0_03h_2022.asc',f'{direc}ESMGFZ_AAM_v1.0_03h_2023.asc', f'{direc}ESMGFZ_AAM_v1.0_03h_2024.asc']
-    #ls = [f'{direc}ESMGFZ_AAM_v1.0_03h_2023.asc', f'{direc}ESMGFZ_AAM_v1.0_03h_2024.asc', f'{direc}ESMGFZ_AAM_v1.0_03h_2025.asc']
+    ls = [f'{direc}ESMGFZ_AAM_v1.0_03h_2023.asc', f'{direc}ESMGFZ_AAM_v1.0_03h_2024.asc', f'{direc}ESMGFZ_AAM_v1.0_03h_2025.asc']
     date,xmass,ymass,zmass,xmotion,ymotion,zmotion = [],[],[],[],[],[],[]
     for i in range(len(ls)):
         f = open(ls[i])
@@ -262,8 +249,7 @@ def read_aam():
         zmotion+=zmo
         
 
-    f = open(f'{direc}ESMGFZ_AAM_v1.0_03h_2025.asc','r')
-    #f = open(f'{direc}ESMGFZ_AAM_v1.0_03h_2026.asc','r')
+    f = open(f'{direc}ESMGFZ_AAM_v1.0_03h_2026.asc','r')
     aamlast = f.read()
     f.close()
     
@@ -315,9 +301,8 @@ def read_oam():
     zmass : list of floats
         idem
     """
-    direc = direc = dd+'/datos/OAM/'
-    ls = [f'{direc}ESMGFZ_OAM_v1.0_03h_2022.asc', f'{direc}ESMGFZ_OAM_v1.0_03h_2023.asc', f'{direc}ESMGFZ_OAM_v1.0_03h_2024.asc']
-    # ls = [f'{direc}ESMGFZ_OAM_v1.0_03h_2023.asc', f'{direc}ESMGFZ_OAM_v1.0_03h_2024.asc',f'{direc}ESMGFZ_OAM_v1.0_03h_2025.asc']
+    direc = dd+'/datos/OAM/'
+    ls = [f'{direc}ESMGFZ_OAM_v1.0_03h_2023.asc', f'{direc}ESMGFZ_OAM_v1.0_03h_2024.asc',f'{direc}ESMGFZ_OAM_v1.0_03h_2025.asc']
     date,xmass,ymass,zmass,xmotion,ymotion,zmotion = [],[],[],[],[],[],[]
     for i in range(len(ls)):
         f = open(ls[i])
@@ -334,8 +319,7 @@ def read_oam():
         zmotion+=zmo
      
     
-    f = open(f'{direc}ESMGFZ_OAM_v1.0_03h_2025.asc','r')
-    # f = open(f'{direc}ESMGFZ_OAM_v1.0_03h_2026.asc','r')
+    f = open(f'{direc}ESMGFZ_OAM_v1.0_03h_2026.asc','r')
     oamlast = f.read()
     f.close()
     
@@ -408,10 +392,10 @@ def read_ham():
         idem
     """
     direc = dd+'/datos/HAM/'
-    ls = [f'{direc}ESMGFZ_HAM_v1.2_24h_2022.asc',f'{direc}ESMGFZ_HAM_v1.2_24h_2023.asc',f'{direc}ESMGFZ_HAM_v1.2_24h_2024.asc']
-    # ls = [f'{direc}ESMGFZ_HAM_v1.2_24h_2023.asc',f'{direc}ESMGFZ_HAM_v1.2_24h_2024.asc',f'{direc}ESMGFZ_HAM_v1.2_24h_2025.asc']
-    date,xmass,ymass,zmass,xmotion,ymotion,zmotion = [59579.500],[-6.768481584344571e-08],[1.554350911101399e-07],[7.662834402983595e-10],[-5.745005402019570e-11],[-4.222078422869910e-11],[4.043618847377000e-13]
-    #date,xmass,ymass,zmass,xmotion,ymotion,zmotion = [59944.500],[-1.077015111728597e-07],[1.872920064634999e-07],[9.658558932245592e-10],[-2.633075391255430e-11],[-1.347446554917640e-11],[2.536914218629560e-13]
+    ls = [f'{direc}ESMGFZ_HAM_v1.2_24h_2023.asc',f'{direc}ESMGFZ_HAM_v1.2_24h_2024.asc',f'{direc}ESMGFZ_HAM_v1.2_24h_2025.asc']
+    #solutions are at 12h, not 00h; so we will calculate the mean value between two solutions to get 00h.
+    #For 01-01 we need the 31-12 solution, which is written in the following line of the code:
+    date,xmass,ymass,zmass,xmotion,ymotion,zmotion = [59944.500],[-1.077015111728597e-07],[1.872920064634999e-07],[9.658558932245592e-10],[-2.633075391255430e-11],[-1.347446554917640e-11],[2.536914218629560e-13]
     for i in range(len(ls)):
         f = open(ls[i])
         aux = (f.read()).split('\n')
@@ -426,8 +410,7 @@ def read_ham():
         ymotion+=ymo
         zmotion+=zmo
     
-    f = open(f'{direc}ESMGFZ_HAM_v1.2_24h_2025.asc','r')
-    # f = open(f'{direc}ESMGFZ_HAM_v1.2_24h_2026.asc','r')
+    f = open(f'{direc}ESMGFZ_HAM_v1.2_24h_2026.asc','r')
     hamlast = f.read()
     f.close()
     

@@ -47,9 +47,8 @@ def finals_all(start,today):
     lista = [[lista[j][:6]]+lista[j][6:].split() for j in range(len(lista))]
     xp, yp, dut1, dx, dy = [],[],[],[],[]
     
-    
-    dx = [float(lista[k][-4])*1e-3 for k in range(len(lista))] #está en mas, no as
-    dy = [float(lista[k][-2])*1e-3 for k in range(len(lista))]
+    dx = [float(lista[k][-4])*1e-3 for k in range(len(lista))] #[mas]->[as]
+    dy = [float(lista[k][-2])*1e-3 for k in range(len(lista))] #[mas]->[as]
     xp = [float(lista[k][3]) for k in range(len(lista))]
     yp = [float(lista[k][5]) for k in range(len(lista))]
     dut1 = [float(lista[k][8]) for k in range(len(lista))]
@@ -406,7 +405,8 @@ def read_ham():
     """
     direc = dd+'/datos/HAM/'
     ls = [f'{direc}ESMGFZ_HAM_v1.2_24h_2023.asc',f'{direc}ESMGFZ_HAM_v1.2_24h_2024.asc',f'{direc}ESMGFZ_HAM_v1.2_24h_2024.asc']
-    #solutions are at 12h, not 00h; so we will calculate the mean value between two solutions to get 00h. For 01-01 we need 31-12 solution
+    #solutions are at 12h, not 00h; so we will calculate the mean value between two solutions to get 00h.
+    #For 01-01 we need the 31-12 solution, which is written in the following line of the code:
     date,xmass,ymass,zmass,xmotion,ymotion,zmotion = [59944.500],[-1.077015111728597e-07],[1.872920064634999e-07],[9.658558932245592e-10],[-2.633075391255430e-11],[-1.347446554917640e-11],[2.536914218629560e-13]
     
     for i in range(len(ls)):
