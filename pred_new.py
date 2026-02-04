@@ -93,5 +93,5 @@ for k in range(6):
     df_si.insert(loc = 1, column = ls[k], value = ['nan']*11)
 
 
-np.savetxt(dd+f'/predicciones/no_eam_new/eoppcc_185_{str(today)}.txt', df_no, fmt = ['%5d','% s','% s','% s','% s','% s', '% s', '% .5f', '% .5f'],delimiter=' \t')
-np.savetxt(dd+f'/predicciones/si_eam_new/eoppcc_186_{str(today)}.txt', df_si, fmt = ['%5d','% s','% s','% s','% s','% s', '% s', '% .5f', '% .5f'],delimiter=' \t')
+# np.savetxt(dd+f'/predicciones/no_eam_new/eoppcc_185_{str(today)}.txt', df_no, fmt = ['%5d','% s','% s','% s','% s','% s', '% s', '% .5f', '% .5f'],delimiter=' \t')
+# np.savetxt(dd+f'/predicciones/si_eam_new/eoppcc_186_{str(today)}.txt', df_si, fmt = ['%5d','% s','% s','% s','% s','% s', '% s', '% .5f', '% .5f'],delimiter=' \t')
