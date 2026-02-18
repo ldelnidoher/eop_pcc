@@ -162,19 +162,19 @@ def read_iers():
     Returns
     -------
     mjd : list of floats
-        last 701 epoch values on the EOP IERS 20u23 C04 series
+        last 701 epoch values on the EOP IERS 20u24 C04 series
     xp : list of floats
-        last 701 xpol values on the EOP IERS 20u23 C04 series
+        last 701 xpol values on the EOP IERS 20u24 C04 series
     yp : list of floats
-        last 701 ypol values on the EOP IERS 20u23 C04 series
+        last 701 ypol values on the EOP IERS 20u24 C04 series
     dy : list of floats
-        last 701 dy values on the EOP IERS 20u23 C04 series
+        last 701 dy values on the EOP IERS 20u24 C04 series
     lod : list of floats
-        last 701 lod values on the EOP IERS 20u23 C04 series
+        last 701 lod values on the EOP IERS 20u24 C04 series
     dut : list of floats
-        last 701 dut values on the EOP IERS 20u23 C04 series
+        last 701 dut values on the EOP IERS 20u24 C04 series
     """
-    r = requests.get("https://datacenter.iers.org/data/latestVersion/EOP_20u23_C04_one_file_1962-now.txt")
+    r = requests.get("https://datacenter.iers.org/data/latestVersion/EOP_20u24_C04_one_file_1962-now.txt")
     datos = r.text
     
     # f = open(dd+"/data/EOP_20u23_C04_one_file_1962-now.txt")
