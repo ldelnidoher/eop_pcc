@@ -15,7 +15,7 @@ import os
 import matplotlib.pyplot as plt
 import sqlite3
 
-day = 61096
+day = 61103
 
 #Path to app local repository
 direc2 = "C:/Users/lddelnido/Documents/app/stream_app/"
