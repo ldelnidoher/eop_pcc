@@ -15,10 +15,10 @@ import os
 import matplotlib.pyplot as plt
 import sqlite3
 
-day = 61103
+day = 61110
 
 #Path to app local repository
-direc2 = "C:/Users/lddelnido/Documents/app/stream_app/"
+direc2 = "C:/Users/34626/Downloads/EOP Predictions/stream_app-main/stream_app"
 
 ################### AUXILIARY  FUNCTIONS ################################
 def read_db(num,lista):
