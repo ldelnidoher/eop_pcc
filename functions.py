@@ -580,7 +580,7 @@ def pred_xp(xp,xsum):
     for j in range(11):
         a = mN[j].predict(np.array(testN).reshape(1,-1))
         b = mR[j].predict(np.array(testR).reshape(1,-1))
-        pred.append(float(a)+float(b))
+        pred.append(float(a[0])+float(b[0]))
         pred_eam.append(m[j].predict(np.array(test_eam).reshape(1,-1))[0])
 
     return pred, pred_eam
@@ -604,7 +604,7 @@ def pred_yp(yp,ysum):
     for j in range(11):
         a = mN[j].predict(np.array(testN).reshape(1,-1))
         b = mR[j].predict(np.array(testR).reshape(1,-1))
-        pred.append(float(a)+float(b))
+        pred.append(float(a[0])+float(b[0]))
         pred_eam.append(m[j].predict(np.array(test_eam).reshape(1,-1))[0])
 
     return pred, pred_eam
