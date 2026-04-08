@@ -56,6 +56,7 @@ def to_str(lst,num):
     st = f'INSERT INTO {aa[num]} (pub_date,parameter,type_eam,pred_day0, pred_day1, pred_day2, pred_day3, pred_day4, pred_day5, pred_day6, pred_day7, pred_day8, pred_day9, pred_day10) VALUES '
     for x in lst:
         st = st+str(tuple(x))+','
+    print(st[:-1]+';')
     return st[:-1]+';'
             
 ###################### EOP_OLD & NEW ###########################
