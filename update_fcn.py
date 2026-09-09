@@ -58,7 +58,7 @@ def get_last_epoch(conn, num, param):
 
 # Download file .zip from repository
 webbrowser.open("https://unialicante-my.sharepoint.com/:u:/g/personal/santiago_belda_mscloud_ua_es/IQDmLGAPUE3CSbJmOpiesTZ6AZ9r3QPzk0kZfidSxidSllY?e=rRhHk6&download=1", new=2)
-time.sleep(45)
+time.sleep(60)
 
 # Get downloads folder
 downloads = user_downloads_dir()
